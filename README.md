@@ -33,27 +33,6 @@ It provides real-time messaging, smooth UI animations, retry on errors, and a ty
 
 ---
 
-## 📂 Project Structure
-
-DevPal/
-│
-├── backend/ # FastAPI backend
-│ ├── main.py # API entrypoint
-│ └── requirements.txt # Python dependencies
-│
-├── frontend/ # React frontend
-│ ├── src/
-│ │ ├── Components/
-│ │ │ └── ChatWindow.jsx # Main chat UI
-│ │ ├── index.js
-│ │ └── index.css
-│ └── package.json # Frontend dependencies
-│
-└── README.md # Project documentation
-
-
----
-
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Backend Setup (FastAPI)
