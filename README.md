@@ -1,122 +1,93 @@
-:
+# 🤖 DevPal – AI Chat Assistant
 
-🚀 DevPal – AI Chatbot with React & FastAPI
-📌 Overview
+DevPal is a **modern AI-powered chat assistant** built with **FastAPI (backend)** and **React (frontend)**.  
+It provides real-time messaging, smooth UI animations, retry on errors, and a typing indicator – inspired by ChatGPT’s experience.  
 
-DevPal is a full-stack AI chatbot application that allows users to chat with an AI assistant in real time.
-The project is built with a React frontend and a FastAPI backend, with support for LLMs (Ollama / OpenAI / others).
+---
 
-It mimics a ChatGPT-like experience with:
+## 🚀 Features
 
-Real-time chat UI
+- ⚡ **FastAPI Backend** – clean REST API at `/chat`  
+- 💬 **Real-time Messaging** with typing indicator  
+- 🎨 **Modern UI** with animations (Framer Motion)  
+- 🌓 **Light/Dark Mode** toggle ready  
+- 🔁 **Retry Failed Messages** (with pulsing retry button)  
+- 🚨 **Shake Animation on Errors** so users don’t miss them  
+- ⌨️ **Press Enter to Send** messages  
+- 📱 **Responsive Design** – works on desktop & mobile  
 
-Typing indicators
+---
 
-Streaming AI responses
+## 🛠️ Tech Stack
 
-Modern UI with animations (Lottie / Framer Motion)
+### Backend
+- [FastAPI](https://fastapi.tiangolo.com/) – Python async web framework  
+- [Uvicorn](https://www.uvicorn.org/) – ASGI server  
+- AI Model: **Ollama (LLaMA2)** *(can be swapped with OpenAI or others)*  
 
-🏗️ Tech Stack
-Frontend (React)
+### Frontend
+- [React](https://react.dev/) – Component-based UI  
+- [Axios](https://axios-http.com/) – API calls  
+- [Framer Motion](https://www.framer.com/motion/) – animations  
+- [CSS3 / Custom Theme Variables] – for modern styling  
 
-React 18 – component-based UI
+---
 
-Axios – API calls to backend
+## 📂 Project Structure
 
-Lottie-React – animated bot (robot animation)
-
-Framer Motion – smooth UI transitions
-
-Bootstrap / Custom CSS – styling
-
-Backend (FastAPI)
-
-FastAPI – lightweight Python API framework
-
-Uvicorn – ASGI server
-
-Ollama (LLM provider, can be swapped with OpenAI or HuggingFace)
-
-StreamingResponse – stream messages for a ChatGPT-like typing effect
-
-📂 Project Structure
 DevPal/
-│── backend/
-│   ├── main.py              # FastAPI backend entrypoint
-│   ├── requirements.txt     # Python dependencies
 │
-│── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── index.js         # React entrypoint
-│   │   ├── App.js           # Root component
-│   │   ├── assets/
-│   │   │   └── robot.json   # Bot animation file
-│   │   ├── Components/
-│   │   │   ├── ChatWindow.jsx
-│   │   │   ├── MessageBubble.jsx
-│   │   │   └── ThemeToggle.jsx
-│   │   ├── hooks/
-│   │   │   └── useChat.js   # Custom chat hook (optional)
-│   ├── package.json         # Node dependencies
+├── backend/ # FastAPI backend
+│ ├── main.py # API entrypoint
+│ └── requirements.txt # Python dependencies
+│
+├── frontend/ # React frontend
+│ ├── src/
+│ │ ├── Components/
+│ │ │ └── ChatWindow.jsx # Main chat UI
+│ │ ├── index.js
+│ │ └── index.css
+│ └── package.json # Frontend dependencies
+│
+└── README.md # Project documentation
 
-⚙️ Installation & Setup
-1. Backend Setup
-cd backend
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Backend Setup (FastAPI)
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-username/devpal.git
+   cd devpal/backend
+
+2. Create virtual environment:
+
 python -m venv venv
-venv\Scripts\activate   # (Windows)
+source venv/bin/activate   # (Linux/Mac)
+venv\Scripts\activate      # (Windows)
+
+3. Install dependencies:
+
 pip install -r requirements.txt
+
+4.Run FastAPI server:
+
 uvicorn main:app --reload
 
 
-Runs backend at:
-👉 http://127.0.0.1:8000
+2️⃣ Frontend Setup (React)
 
-2. Frontend Setup
-cd frontend
+1. Go to frontend folder:
+
+cd ../frontend
+
+2. Install dependencies:
+
 npm install
+
+3. Start dev server:
+
 npm start
-
-
-Runs frontend at:
-👉 http://localhost:3000
-
-💡 Features
-
-✅ Interactive Chat – send & receive messages like ChatGPT
-✅ Streaming Responses – AI types word by word
-✅ Typing Indicator – shows when the bot is thinking
-✅ Modern UI – bot avatar, animations, dark/light theme
-✅ Keyboard Shortcuts – press Enter to send messages
-✅ Extensible Backend – switch AI model provider easily
-
-🔄 API Contract
-Endpoint
-
-POST /chat
-
-Request
-{
-  "message": "Hello, DevPal!"
-}
-
-Response
-{
-  "reply": "Hi! I'm DevPal, your AI assistant."
-}
-
-
-(or streamed response if using StreamingResponse)
-
-🌐 Future Improvements
-
-🔗 Multi-model support (OpenAI, HuggingFace, Gemini, Ollama)
-
-💾 Save chat history in MongoDB / PostgreSQL
-
-👥 Multi-user authentication
-
-🎤 Voice input & speech synthesis
-
-📱 Mobile-friendly PWA
